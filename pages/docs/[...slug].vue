@@ -1,7 +1,7 @@
 <script setup>
 const { path } = useRoute();
 const { page, toc, navigation } = useContent();
-const layout = "docs";
+let layout = "docs";
 
 const { data } = await useAsyncData(`content-${path}`, async () => {
   // fetch document where the document path matches with the cuurent route
@@ -22,12 +22,9 @@ const { data } = await useAsyncData(`content-${path}`, async () => {
 <template>
   <div>
     <NuxtLayout :name="layout">
-      <!-- render document coming from query 
-    <ContentRenderer :value="data.mldocs">-->
-      <!-- render rich text from document
-      <MarkdownRenderer :value="data.docs" /> -->
+
       <div
-        v-if="data.mldocs.title"
+        v-if="data && data.mldocs && data.mldocs.title"
         class="text-center text-gray-500 text-3xl mb-10 scroll-mt-20"
       >
         <h1>{{ data.mldocs.title }}</h1>

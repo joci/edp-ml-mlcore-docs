@@ -2,7 +2,10 @@
 title: Build and deploy a model with Workbench
 updated: Last updateed May 4, 2022
 author: Written by EDP Team
-description: Google Cloud's Vertex AI Workbench & Training - to build end-to-end ML workflows. You'll learn how to go from raw data to deployed model, and will leave this workshop ready to develop and productionize your own ML projects with Vertex AI.
+description: Google Cloud's Vertex AI Workbench & Training - to build end-to-end ML workflows. You'll learn how to go from raw data to deployed model,and will leave this workshop ready to develop and productionize your own ML projects with Vertex AI.
+tag: Lab-series-1
+layout: docs
+
 ---
 
 ::docCard
@@ -15,7 +18,6 @@ writtenBy: EDP Team
 ::
 
 ::docCard{id="1"}
-
 ### [1. Overview]{.text-center .text-gray-500 .text-2xl .mb-10 .no-underline}
 In this lab, you'll learn how to use Vertex AI - Google Cloud's newly announced managed ML platform - to build end-to-end ML workflows. You'll learn how to go from raw data to deployed model, and will leave this workshop ready to develop and productionize your own ML projects with Vertex AI.In this lab, we're using Cloud Shell to build a custom Docker image to demonstrate custom containers for training with Vertex AI.
 
@@ -33,7 +35,6 @@ What you learn:
 ::
 
 ::docCard{id="2"}
-
 ### [2. Intro to Vertex AI]{.text-center .text-gray-500 .text-2xl .mb-10 .no-underline}
 This lab uses the newest AI product offering available on Google Cloud. Vertex AI integrates the ML offerings across Google Cloud into a seamless development experience. Previously, models trained with AutoML and custom models were accessible via separate services. The new offering combines both into a single API, along with other new products. You can also migrate existing projects to Vertex AI.
 
@@ -44,7 +45,6 @@ In addition to model training and deployment services, Vertex AI also includes a
 ::
 
 ::docCard{id="3"}
-
 ### [3. Cloud environment setup]{.text-center .text-gray-500 .text-2xl .mb-10 .no-underline}
 
 You'll need a EDP Google Cloud ML Training Platform project. To create a project, follow the request form here.
@@ -102,7 +102,6 @@ Once the instance has been created, select Open JupyterLab:
 ::
 
 ::docCard{id="4"}
-
 ### [4. Containerize training code]{.text-center .text-gray-500 .text-2xl .mb-10 .no-underline}
 
 We'll submit this training job to Vertex by putting our training code in a Docker container and pushing this container to Google Container Registry. Using this approach, we can train a model built with any framework.

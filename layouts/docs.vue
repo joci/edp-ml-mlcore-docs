@@ -1,85 +1,49 @@
 <script setup>
-const { path } = useRoute();
-
 const { toc, navigation } = useContent();
 
 const observer = ref({});
-const currentSection = ref("");
 const currentSections = ref([]);
-
-const boundingRectTop = ref("");
-const intersectionRectTop = ref("");
-const ratioref = ref("");
-const currentEmelemt = ref("");
-const intersectionRatio = ref("");
-
-//from mdn
-const numSteps = 20.0;
-
-let boxElement;
-let prevRatio = 0.0;
-
-//
 
 onMounted(() => {
   let options = {
     root: null,
     rootMargin: "0px",
-    threshold: buildThresholdList(),
   };
 
   observer.value = new IntersectionObserver((entries) => {
-    currentSections.value = [];
-    entries.forEach((entry, index) => {
-      const ratio = entry.intersectionRatio;
-      const boundingRect = entry.boundingClientRect;
-      const intersectionRect = entry.intersectionRect;
-
-      /*if (entry.intersectionRatio > prevRatio) {
-        currentSections.value.push(entry.target.getAttribute("id"));
-      }
-
-      prevRatio = entry.intersectionRatio;
-      */
-      boundingRectTop.value = boundingRect.top;
-      intersectionRectTop.value = intersectionRect.top;
-      ratioref.value = entry.intersectionRatio;
-      currentEmelemt.value = entry.target.getAttribute("id");
-      intersectionRatio.value = entry.intersectionRatio;
-      if (ratio === 0) {
-        //currentSections.value.push(entry.target.getAttribute("id"));
-      } else if (ratio < 1) {
-        if (boundingRect.top < intersectionRect.top) {
-          currentSections.value.push(entry.target.getAttribute("id"));
-        } else {
-          currentSections.value.push(entry.target.getAttribute("id"));
+    const ul = document.querySelector(".toc-links");
+      var items = ul.getElementsByTagName("li");
+    if (entries && items){
+      entries.forEach((entry, index) => {
+        const div = entry.target.getElementsByTagName("h3")[0];
+        if (div != null && div.getAttribute("id")) {
+          if (entry.isIntersecting) {
+            for (var i = 0; i < items.length; ++i) {
+              if (div.getAttribute("id") === items[i].getAttribute("id")){
+                items[i].classList.remove("text-sky-500");
+                items[i].classList.add("bg-blue-400");
+                items[i].classList.add("text-white");
+              }
+            }
+          } else {
+            for (var i = 0; i < items.length; ++i) {
+              if (div.getAttribute("id") === items[i].getAttribute("id")){
+                items[i].classList.add("text-sky-500");
+                items[i].classList.remove("bg-blue-400");
+                items[i].classList.remove("text-white");
+              }
+                
+            }
+          }
         }
-      } else if (entry.intersectionRatio >= 1) {
-        currentSections.value.push(entry.target.getAttribute("id"));
-      }
-
-      if (entry.intersectionRatio >= 1) {
-        currentSections.value.push(entry.target.getAttribute("id"));
-      }
-    });
+      });
+    }
+    //console.log('array value : ' + currentSections.value.entries.forEach((entry, index) => console.log(entry)))
   });
 
-  document.querySelectorAll("article h3").forEach((section) => {
+  document.querySelectorAll("article").forEach((section) => {
     observer.value.observe(section);
   });
-
-  function buildThresholdList() {
-    let thresholds = [];
-    let numSteps = 20;
-
-    for (let i = 1.0; i <= numSteps; i++) {
-      let ratio = i / numSteps;
-      thresholds.push(ratio);
-    }
-
-    thresholds.push(0);
-    return thresholds;
-  }
 });
 
 onUnmounted(() => {
@@ -130,18 +94,10 @@ onUnmounted(() => {
       <div
         class="cursor-pointer sm:cursor-auto hidden xl:sticky xl:top-[4.5rem] xl:-mr-6 xl:block xl:h-[calc(100vh-4.5rem)] xl:flex-none xl:overflow-y-auto xl:py-16 xl:pr-6"
       >
-        <p>Current element: {{ currentEmelemt }}</p>
-        <p>boundingRectTop: {{ boundingRectTop }}</p>
-        <p>intersectionRectTop: {{ intersectionRectTop }}</p>
-        <p>ratioref : {{ ratioref }}</p>
-        <p>intersectionRatio: {{ intersectionRatio }}</p>
         <DocsToc
           v-if="toc.links"
           :links="toc.links"
-          :currentSection="currentSection"
           :currentSections="currentSections"
-          :boundingRectTop="boundingRectTop"
-          :intersectionRectTop="intersectionRectTop"
         />
       </div>
 
