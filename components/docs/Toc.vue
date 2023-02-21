@@ -38,7 +38,7 @@ const flattenLinks = (links) => {
   <div>
   <nav aria-labelledby="on-this-page-title" class="toc w-auto">
     <header class="toc-header">
-      <h3
+      <h3 v-if="links.length>0"
         id="on-this-page-title"
         class="font-display text-sm font-medium text-slate-900 dark:text-white mb-3 ml-3"
       >

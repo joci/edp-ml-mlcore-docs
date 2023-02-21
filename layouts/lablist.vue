@@ -3,10 +3,10 @@ const { navigation } = useContent();
 
 const { path } = useRoute()
 
-const qc = await queryContent(path)
-  .where({ author })
-  .sort({ _file: -1, $numeric: true })
-  .find();
+//const qc = await queryContent(path)
+  //.where({ author })
+  //.sort({ _file: -1, $numeric: true })
+  //.find();
 
 </script>
 

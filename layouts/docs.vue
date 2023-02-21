@@ -12,7 +12,11 @@ onMounted(() => {
 
   observer.value = new IntersectionObserver((entries) => {
     const ul = document.querySelector(".toc-links");
-      var items = ul.getElementsByTagName("li");
+    var items;
+    if(ul){
+       items = ul.getElementsByTagName("li");
+    }  
+   
     if (entries && items){
       entries.forEach((entry, index) => {
         const div = entry.target.getElementsByTagName("h3")[0];

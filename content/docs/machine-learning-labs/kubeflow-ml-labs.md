@@ -1,7 +1,7 @@
 ---
 title: 'Kubeflow ML Labs'
 Description: 'Kubeflow ML Labs description'
-layout: 'custom'
+layout: docs
 ---
 
 # This is the First Title of the Page

@@ -1,6 +1,8 @@
 ---
 title: 'Big Query ML Labs'
 Description: 'Big Query ML Labs description'
+layout: docs
+
 ---
 
 ### Build and deploy a model with Workbench

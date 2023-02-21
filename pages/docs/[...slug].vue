@@ -21,13 +21,14 @@ const { data } = await useAsyncData(`content-${path}`, async () => {
 </script>
 <template>
   <div>
-    <NuxtLayout :name="layout">
+    <NuxtLayout :name=" page.layout">
 
       <div
         v-if="data && data.mldocs && data.mldocs.title"
         class="text-center text-gray-500 text-3xl mb-10 scroll-mt-20"
       >
         <h1>{{ data.mldocs.title }}</h1>
+        name: {{ page.layout }}
       </div>
       <div class="prose max-w-none">
         <ContentRenderer :value="page">
