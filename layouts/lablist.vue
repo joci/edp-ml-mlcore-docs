@@ -12,7 +12,7 @@ const { path } = useRoute()
 
 <template>
   <div class="bg-slate-50">
-    <DocsHeader navigation="{navigation}" />
+    <!--<DocsHeader navigation="{navigation}" />-->
 
     <div
       class="
