@@ -22,10 +22,25 @@ const { data } = await useAsyncData(`content-${path}`, async () => {
 <template>
   <div>
     <NuxtLayout :name=" page.layout">
-      <div>
-        <h3 class=" text-sm font-bold">
-          Documentation</h3>
+      <div class=" pb-11">
+        <h3 class=" text-sm font-bold items-center">
+          Documentation 
+          <span class="rounded-lg text-[8px] text-zinc-400 shadow-sm p-1 ml-1.5 font-medium bg-white">v 1.0.0</span>
+          <span class="text-zinc-200 font-medium px-3">|</span>
+          <span class=" text-zinc-400  font-medium text-sm">Getting Started</span>
+          <span class=" font-medium text-sm"> - 
+            <span v-if="data && data.mldocs && data.mldocs.title">
+              {{ data.mldocs.title }}
+            </span>
+            <span v-else>
+              Overview
+            </span>
+          </span>
+
+        </h3>
       </div>
+
+      <div class=" pb-3"></div>
 
       <div
         v-if="data && data.mldocs && data.mldocs.layout!== 'lablist' && data.mldocs.title"

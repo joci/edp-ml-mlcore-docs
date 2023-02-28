@@ -57,7 +57,7 @@ onUnmounted(() => {
 
 <template>
   <div class="bg-slate-50">
-    <DocsHeader navigation="{navigation}" />
+    <!--<DocsHeader navigation="{navigation}" />-->
 
     <div
       class="mx-auto snap-y snap-mandatory .scroll-mt-20 flex max-w-8xl justify-center sm:px-2 lg:px-8 xl:px-12"
