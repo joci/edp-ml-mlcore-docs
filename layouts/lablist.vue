@@ -1,22 +1,9 @@
 <script setup>
 const { navigation } = useContent();
-
-const { path } = useRoute()
-const currentTag = path.substring(path.lastIndexOf('/') + 1);
-const docsList = await queryContent('docs').only(['updated','title','description','tag'])
-  .where({tag:currentTag})
-  .find();
-
-
-
-
 </script>
 
 <template>
   <div class="bg-slate-50">
-    <!--<DocsHeader navigation="{navigation}" />-->
-    <pre>currentTag - {{ currentTag }}</pre>
-    <pre>docsList - {{docsList}}</pre>
     <div
       class="
         mx-auto

@@ -10,7 +10,5 @@ layout: lablist
 
 ::CardList
 
-::CardList
-
 
 
