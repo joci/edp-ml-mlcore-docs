@@ -7,9 +7,6 @@ export default defineNuxtConfig({
         apiBaseUrlLocal:'',
       }
     },
-    app: {
-      baseURL: '/'
-    },
 
     modules: [
         '@nuxt/content','@nuxtjs/tailwindcss','@vueuse/nuxt',

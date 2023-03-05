@@ -5,15 +5,12 @@
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare",
-    "predeploy": "nuxt generate",
-    "deploy": "gh-pages -d dist"
+    "postinstall": "nuxt prepare"
   },
   "devDependencies": {
     "@nuxt/content": "npm:@nuxt/content-edge@latest",
     "@vueuse/core": "^9.4.0",
     "@vueuse/nuxt": "^9.4.0",
-    "gh-pages": "^5.0.0",
     "nuxt": "3.0.0-rc.12",
     "prettier": "^2.6.2",
     "prettier-plugin-tailwindcss": "^0.1.11"
