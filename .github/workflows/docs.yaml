@@ -2,7 +2,9 @@ name: docs
 
 # define the trigger 
 on: 
-  push:
+  pull_request:
+    types:
+      - closed
     branches:
       - master
 
