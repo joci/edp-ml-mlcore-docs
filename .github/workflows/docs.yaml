@@ -13,7 +13,7 @@ jobs:
     runs-on: ${{ matrix.os }}
     env:
       # We used "docs" as directory name for our documentation, we will be referencing this later
-      working-directory: docs
+      working-directory: edp-ml-mlcore-docs
 
     strategy:
       matrix:
