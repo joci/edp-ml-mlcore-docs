@@ -30,12 +30,12 @@ jobs:
       - name: Install dependencies
         # Referencing our docs directory here
         working-directory: ${{env.working-directory}}
-        run: yarn
+        run: npm install
 
       # The generate command is used to invoke Nuxt static site generation
       - name: Generate
         working-directory: ${{env.working-directory}}
-        run: yarn run generate
+        run: npm run generate
 
       # Pushes the files to a branch called "gh-pages" that will be used as deployment branch
       - name: Deploy
