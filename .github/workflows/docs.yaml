@@ -22,7 +22,7 @@ jobs:
 
       # Downloads, configures and caches Node.js
       - name: Setup node env
-        uses: actions/setup-node@v2.1.4
+        uses: actions/setup-node@v18.12.1
         with:
           node-version: ${{ matrix.node }}
 
