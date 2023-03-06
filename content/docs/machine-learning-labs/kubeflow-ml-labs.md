@@ -2,9 +2,10 @@
 title: 'Kubeflow ML Labs'
 Description: 'Kubeflow ML Labs description'
 layout: docs
+tag: kubeflow-ml-labs
 ---
 
-# This is the First Title of the Page
+# kubeflow-ml-labs
 
 
 

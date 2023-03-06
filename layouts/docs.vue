@@ -13,9 +13,8 @@ onMounted(() => {
   observer.value = new IntersectionObserver((entries) => {
     const ul = document.querySelector(".toc-links");
     var items;
-    if(ul){
+    if(ul && ul.getElementsByTagName("li")){
        items = ul.getElementsByTagName("li");
-    }  
    
     if (entries && items){
       entries.forEach((entry, index) => {
@@ -42,6 +41,7 @@ onMounted(() => {
         }
       });
     }
+  }
     //console.log('array value : ' + currentSections.value.entries.forEach((entry, index) => console.log(entry)))
   });
 
