@@ -8,7 +8,16 @@ export default defineNuxtConfig({
       }
     },
     app: {
-      baseURL: '/edp-ml-mlcore-docs/'
+      baseURL: '/edp-ml-mlcore-docs/',
+      head: {
+        charset: 'utf-16',
+        title: 'MLDocs',
+        meta: [
+          // <meta name="description" content="My amazing site">
+          //<meta http-equiv="Permissions-Policy" content="interest-cohort=()">
+          { 'http-equiv': 'Permissions-Policy', content: 'interest-cohort=()' }
+        ],
+      }
     },
 
     modules: [
