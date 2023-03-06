@@ -7,6 +7,9 @@ export default defineNuxtConfig({
         apiBaseUrlLocal:'',
       }
     },
+    app: {
+      baseURL: '/edp-ml-mlcore-docs/'
+    },
 
     modules: [
         '@nuxt/content','@nuxtjs/tailwindcss','@vueuse/nuxt',
