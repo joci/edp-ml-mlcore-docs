@@ -62,7 +62,7 @@ jobs:
         uses: actions/cache@v3
         with:
           path: |
-            dist
+            edp-ml-mlcore-docs/dist
             .nuxt
           key: ${{ runner.os }}-nuxt-build-${{ hashFiles('dist') }}
           restore-keys: |
