@@ -1,1 +1,0 @@
-import{bu as e,o as t,b as o,e as s}from"./entry.3afca6ad.js";const c={},n=s("p",null,"This should ue the default layout",-1),a=[n];function r(_,l){return t(),o("div",null,a)}const u=e(c,[["render",r]]);export{u as default};
