@@ -41,9 +41,9 @@ const docsList = await queryContent('docs').only(['updated','title','description
           <div>
             <div class="flex items-center sticky">
               <div class=" pl-4 text-[10px] pr-3"> {{doc.updated}}</div> 
-                <a :href="doc._path" class="bg-sky-500 hover:bg-sky-300 text-white text-xs rounded-lg  py-2 px-4 ">
+                <NuxtLink :href="doc._path" class="bg-sky-500 hover:bg-sky-300 text-white text-xs rounded-lg  py-2 px-4 ">
                   Start
-                </a>     
+                </NuxtLink>     
 						</div>
           </div>
         </div>
