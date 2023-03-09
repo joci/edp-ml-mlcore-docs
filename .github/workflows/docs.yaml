@@ -2,44 +2,70 @@ name: docs
 
 # define the trigger 
 on: 
+  push:
+    branches:
+      - master
   pull_request:
     types:
       - closed
-    branches:
-      - nonexist
+    branches: [master]
+
+ # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Allow one concurrent deployment
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
 
 jobs:
-  docs:
+  # Build job
+  build:
     runs-on: ${{ matrix.os }}
-    env:
+   # env:
       # We used "docs" as directory name for our documentation, we will be referencing this later
-      working-directory: .
+      #working-directory: .
 
     strategy:
       matrix:
         os: [ubuntu-latest]
-        node: [18]
+        node: [18.8.0]
 
     steps:
       # Check out master branch
       - name: Checkout
-        uses: actions/checkout@master
+        uses: actions/checkout@v3
 
       # Downloads, configures and caches Node.js
       - name: Setup node env
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node }}
-
+          cache: npm
+      - name: Restore cache
+        uses: actions/cache@v3
+        with:
+          path: |
+            dist
+            .nuxt
+          key: ${{ runner.os }}-nuxt-build-${{ hashFiles('dist') }}
+          restore-keys: |
+            ${{ runner.os }}-nuxt-build-
       # Install all dependencies needed to build our documentation
       - name: Install dependencies
         # Referencing our docs directory here
-        working-directory: ${{env.working-directory}}
+        #working-directory: ${{env.working-directory}}
         run: npm install
 
       # The generate command is used to invoke Nuxt static site generation
       - name: Generate
-        working-directory: ${{env.working-directory}}
+        #working-directory: ${{env.working-directory}}
         run: npm run generate
 
       # Pushes the files to a branch called "gh-pages" that will be used as deployment branch
