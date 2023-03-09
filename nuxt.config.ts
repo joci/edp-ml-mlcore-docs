@@ -7,6 +7,7 @@ export default defineNuxtConfig({
         apiBaseUrlLocal:'',
       }
     },
+    ssr: false,
     app: {
       baseURL: '/edp-ml-mlcore-docs/',
       head: {
