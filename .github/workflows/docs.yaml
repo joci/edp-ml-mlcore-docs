@@ -59,13 +59,10 @@ jobs:
             ${{ runner.os }}-nuxt-build-
       # Install all dependencies needed to build our documentation
       - name: Install dependencies
-        # Referencing our docs directory here
-        #working-directory: ${{env.working-directory}}
         run: npm install
 
       # The generate command is used to invoke Nuxt static site generation
       - name: Generate
-        #working-directory: ${{env.working-directory}}
         run: npm run generate
 
       # Pushes the files to a branch called "gh-pages" that will be used as deployment branch
@@ -75,4 +72,4 @@ jobs:
           # This token is automatically invoked
           github_token: ${{ secrets.GITHUB_TOKEN }}
           # Nuxt export the statically generated files in the dist directory by default
-          publish_dir: ./output/public
+          publish_dir: ./dist
